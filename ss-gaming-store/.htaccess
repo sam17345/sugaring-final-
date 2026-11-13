@@ -1,0 +1,21 @@
+# SS Gaming Store - Root Apache / LiteSpeed Configuration
+DirectoryIndex index.php
+Options -Indexes
+
+# Block direct access to sensitive config and dotfiles
+<FilesMatch "^(config\.php|\.htaccess|\.htpasswd)$">
+    <IfModule mod_authz_core.c>
+        Require all denied
+    </IfModule>
+    <IfModule !mod_authz_core.c>
+        Order allow,deny
+        Deny from all
+    </IfModule>
+</FilesMatch>
+
+# Basic Security Headers
+<IfModule mod_headers.c>
+    Header set X-Content-Type-Options "nosniff"
+    Header set X-Frame-Options "SAMEORIGIN"
+    Header set Referrer-Policy "strict-origin-when-cross-origin"
+</IfModule>

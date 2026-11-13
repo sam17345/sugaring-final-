@@ -1,0 +1,3 @@
+User-agent: *
+Disallow: /ssadmin-x7k2/
+Disallow: /data/

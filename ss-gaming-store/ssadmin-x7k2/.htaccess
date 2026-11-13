@@ -1,0 +1,5 @@
+# Prevent search engines from indexing the hidden admin portal
+<IfModule mod_headers.c>
+    Header set X-Robots-Tag "noindex, nofollow"
+</IfModule>
+Options -Indexes
